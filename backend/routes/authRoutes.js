@@ -23,15 +23,29 @@ const generateTokens = (user) => {
 };
 
 router.post('/register', async (req, res) => {
-    const { username, password } = req.body;
-
+    const { firstName, lastName, phone, about, email, profilePic, socialMedia, passwordHash } = req.body;
+    console.log(req.body);
+    
     try {
-        let user = await User.findOne({ username });
+        let user = await User.findOne({ email });
         if (user) {
             return res.status(400).json({ msg: 'User already exists' });
         }
 
-        user = new User({ username, password });
+        const salt = await bcrypt.genSalt(10);
+        const passwordHash = await bcrypt.hash(password, salt);
+
+        user = new User({
+            firstName,
+            lastName,
+            phone,
+            about,
+            email,
+            profilePic,
+            socialMedia,
+            passwordHash,
+        });
+
         await user.save();
 
         const { accessToken, refreshToken } = generateTokens(user);
@@ -39,8 +53,9 @@ router.post('/register', async (req, res) => {
         const token = new Token({
             userId: user.id,
             token: refreshToken,
-            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 1 week from now
         });
+
         await token.save();
 
         res.json({ accessToken, refreshToken });
@@ -49,6 +64,7 @@ router.post('/register', async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
