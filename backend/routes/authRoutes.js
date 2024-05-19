@@ -53,7 +53,7 @@ router.post('/register', async (req, res) => {
         const token = new Token({
             userId: user.id,
             token: refreshToken,
-            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 1 week from now
+            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         });
 
         await token.save();
