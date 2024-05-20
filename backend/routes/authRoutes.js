@@ -23,17 +23,16 @@ const generateTokens = (user) => {
 };
 
 router.post('/register', async (req, res) => {
-    const { firstName, lastName, phone, about, email, profilePic, socialMedia, passwordHash } = req.body;
-    console.log(req.body);
+    const { firstName, lastName, phone, about, email, profilePic, socialMedia, password } = req.body;
     
     try {
-        let user = await User.findOne({ email });
+        let user = await User.findOne({ email }); 
         if (user) {
             return res.status(400).json({ msg: 'User already exists' });
         }
 
         const salt = await bcrypt.genSalt(10);
-        const passwordHash = await bcrypt.hash(password, salt);
+        passwordHash = await bcrypt.hash("Huseyn123", salt);
 
         user = new User({
             firstName,
@@ -43,7 +42,7 @@ router.post('/register', async (req, res) => {
             email,
             profilePic,
             socialMedia,
-            passwordHash,
+            passwordHash
         });
 
         await user.save();
