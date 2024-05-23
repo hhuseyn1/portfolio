@@ -20,8 +20,8 @@ const Header = () => {
 
       <div className="container mx-auto px-4 flex-1 flex flex-col md:flex-row items-center justify-center md:justify-between">
         <div className="flex-1 md:mr-8 text-center md:text-left">
-          <h1 className="text-3xl md:text-5xl mb-4">I'm <span className='font-bold'>Huseyn Hamidov</span></h1>
-          <p className="text-lg mb-6">I'm a fullstack developer {'{student}'} with a passion for creating solutions that make a difference.</p>
+          <h1 className="text-3xl md:text-5xl mb-4">I&apos;m <span className="font-bold">Huseyn Hamidov</span></h1>
+          <p className="text-lg mb-6">I&apos;m a fullstack developer {'{student}'} with a passion for creating solutions that make a difference.</p>
           <div className="flex items-center justify-center md:justify-start mb-4">
             <a href="https://github.com/yourprofile" className="text-[#212121] hover:text-[#212121] mr-4" target="_blank" rel="noopener noreferrer">
               <FaGithub className="text-3xl" />
