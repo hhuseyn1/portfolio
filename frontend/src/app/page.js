@@ -1,3 +1,4 @@
+// pages/index.js
 import React from 'react';
 import Experience from '../components/Experience';
 import Skills from '../components/Skills';
@@ -7,10 +8,18 @@ import Header from '../components/Header';
 const Home = () => {
   return (
     <div className='px-10'>
-      <Header/>
-      <Skills />
-      <Experience />
-      <Footer />
+      <div id="home">
+        <Header />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="experience">
+        <Experience />
+      </div>
+      <div id="contact">
+        <Footer />
+      </div>
     </div>
   );
 };

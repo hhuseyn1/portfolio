@@ -12,7 +12,7 @@ const Header = () => {
     <header className="h-screen flex flex-col">
       <nav className="container mx-auto px-6 py-4 flex justify-end">
         <a href="#about" className="text-[#212121] hover:text-[#212121] hover:underline mr-8">Home</a>
-        <a href="#skills" className="text-[#212121] hover:text-[#212121] hover:underline mr-8">Blogs</a>
+        <a href="/blogs" className="text-[#212121] hover:text-[#212121] hover:underline mr-8">Blogs</a>
         <a href="#skills" className="text-[#212121] hover:text-[#212121] hover:underline mr-8">Skills</a>
         <a href="#experience" className="text-[#212121] hover:text-[#212121] hover:underline mr-8">Experience</a>
         <a href="#contact" className="text-[#212121] hover:text-[#212121] hover:underline">Contact</a>
