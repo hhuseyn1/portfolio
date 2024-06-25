@@ -32,7 +32,7 @@ router.post('/register', async (req, res) => {
         }
 
         const salt = await bcrypt.genSalt(10);
-        passwordHash = await bcrypt.hash("Huseyn123", salt);
+        passwordHash = await bcrypt.hash(password, salt);
 
         user = new User({
             firstName,
@@ -123,6 +123,20 @@ router.post('/refresh', async (req, res) => {
     } catch (err) {
         console.error(err.message);
         res.status(401).json({ msg: 'Token is not valid' });
+    }
+});
+
+
+router.get('/user/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id).select('-passwordHash');
+        if (!user) {
+            return res.status(404).json({ msg: 'User not found' });
+        }
+        res.json(user);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
     }
 });
 

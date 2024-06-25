@@ -13,12 +13,12 @@ const Footer = () => {
                 <span className="ml-auto text-[#212121]">Follow me:</span>
               </div>
               <div className="flex items-center">
-                <span className="mr-4 text-[#212121]">your-email@example.com</span>
+                <span className="mr-4 text-[#212121]">huseynhemi@gmail.com</span>
                 <div className="flex space-x-4 ml-auto">
-                  <a href="https://linkedin.com/in/yourprofile" className="hover:underline" target="_blank" rel="noopener noreferrer">
+                  <a href="https://linkedin.com/in/huseyn-hemidov" className="hover:underline" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-linkedin fa-lg"></i>
                   </a>
-                  <a href="https://github.com/yourprofile" className="hover:underline" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/hhuseyn1" className="hover:underline" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-github fa-lg"></i>
                   </a>
                 </div>
